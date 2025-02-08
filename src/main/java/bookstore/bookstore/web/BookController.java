@@ -2,6 +2,7 @@ package bookstore.bookstore.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import bookstore.bookstore.domain.BookRepository;
@@ -14,5 +15,11 @@ private BookRepository repository;
     @GetMapping("/index")
     public String index() {
         return "index";
+    }
+
+    @GetMapping("/booklist")
+    public String showBooklist(Model model) {
+        model.addAttribute("books", repository.findAll());
+        return "booklist";
     }
 }
