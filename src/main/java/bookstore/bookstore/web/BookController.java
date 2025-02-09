@@ -35,12 +35,12 @@ private BookRepository repository;
     @PostMapping("/save")
     public String save(Book book) {
         repository.save(book);
-        return "redirect:booklist";
+        return "redirect:/booklist";
     }
 
     @GetMapping("/delete/{id}")
     public String deleteBook(@PathVariable("id") Long id, Model model) {
         repository.deleteById(id);
-        return "redirect:booklist";
+        return "redirect:/booklist";
     }
 }
