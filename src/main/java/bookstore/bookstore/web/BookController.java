@@ -47,13 +47,9 @@ private BookRepository repository;
     }
 
     @GetMapping("/edit/{id}")
-    public String editBook(@PathVariable("id") Long id, Model model) throws Exception {
+    public String editBook(@PathVariable("id") Long id, Model model) {
         Optional<Book> book = repository.findById(id);
-        if (book.isPresent()) {
-            model.addAttribute("book", book.get());
-        } else {
-            throw new Exception("Book not found");
-        }
+        model.addAttribute("book", book);
         return "editbook";
     }
 }
