@@ -1,5 +1,7 @@
 package bookstore.bookstore.web;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,5 +44,16 @@ private BookRepository repository;
     public String deleteBook(@PathVariable("id") Long id, Model model) {
         repository.deleteById(id);
         return "redirect:/booklist";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String editBook(@PathVariable("id") Long id, Model model) throws Exception {
+        Optional<Book> book = repository.findById(id);
+        if (book.isPresent()) {
+            model.addAttribute("book", book.get());
+        } else {
+            throw new Exception("Book not found");
+        }
+        return "editbook";
     }
 }
