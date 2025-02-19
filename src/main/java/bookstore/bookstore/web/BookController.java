@@ -14,8 +14,9 @@ import bookstore.bookstore.domain.BookRepository;
 
 @Controller
 public class BookController {
-@Autowired
-private BookRepository repository;
+
+    @Autowired
+    private BookRepository brepository;
 
     @GetMapping("/index")
     public String index() {
@@ -26,7 +27,7 @@ private BookRepository repository;
     // create a view for the list
     @GetMapping("/booklist")
     public String showBooklist(Model model) {
-        model.addAttribute("books", repository.findAll());
+        model.addAttribute("books", brepository.findAll());
         return "booklist";
     }
 
@@ -41,14 +42,14 @@ private BookRepository repository;
     // save the added information to the database
     @PostMapping("/save")
     public String save(Book book) {
-        repository.save(book);
+        brepository.save(book);
         return "redirect:/booklist";
     }
 
     // delete a book from the database based on id
     @GetMapping("/delete/{id}")
     public String deleteBook(@PathVariable("id") Long id, Model model) {
-        repository.deleteById(id);
+        brepository.deleteById(id);
         return "redirect:/booklist";
     }
 
@@ -57,7 +58,7 @@ private BookRepository repository;
     // create a view for editing the book
     @GetMapping("/edit/{id}")
     public String editBook(@PathVariable("id") Long id, Model model) {
-        Optional<Book> book = repository.findById(id);
+        Optional<Book> book = brepository.findById(id);
         model.addAttribute("book", book);
         return "editbook";
     }
