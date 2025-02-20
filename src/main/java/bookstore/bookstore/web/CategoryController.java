@@ -23,8 +23,8 @@ public class CategoryController {
         return "categorylist";
     }
 
-    // create a method to add new category
-    // pass an empty category object to the model
+    // create a form page to add new category
+    // create an empty category object to store the user input
     @GetMapping("/addcategory")
     public String addCategory(Model model) {
         model.addAttribute("category", new Category());

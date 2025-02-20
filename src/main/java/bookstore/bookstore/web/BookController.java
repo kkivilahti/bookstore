@@ -11,12 +11,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import bookstore.bookstore.domain.Book;
 import bookstore.bookstore.domain.BookRepository;
+import bookstore.bookstore.domain.CategoryRepository;
 
 @Controller
 public class BookController {
 
     @Autowired
     private BookRepository brepository;
+
+    @Autowired
+    private CategoryRepository crepository;
 
     @GetMapping("/index")
     public String index() {
@@ -31,15 +35,17 @@ public class BookController {
         return "booklist";
     }
 
-    // create a method to add a new book
-    // pass an empty book object to the model
+    // create a form page to add a new book
+    // create an empty book object to store the user input
+    // fetch categories from the database (for the dropdown)
     @GetMapping("/add")
     public String addBook(Model model) {
         model.addAttribute("book", new Book());
+        model.addAttribute("categories", crepository.findAll());
         return "addbook";
     }
 
-    // save the added information to the database
+    // save the information to the database
     @PostMapping("/save")
     public String save(Book book) {
         brepository.save(book);
@@ -55,7 +61,7 @@ public class BookController {
 
     // fetch book data by id
     // pass the data to the model
-    // create a view for editing the book
+    // create a form page to edit the book
     @GetMapping("/edit/{id}")
     public String editBook(@PathVariable("id") Long id, Model model) {
         Optional<Book> book = brepository.findById(id);
