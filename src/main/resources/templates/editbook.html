@@ -24,6 +24,11 @@
             <label for="price">Price:</label>
             <input type="number" class="form-control mb-2" id="price" th:field="*{price}" max="50" step="0.10"
                 required />
+            <label for="dropdown">Category:</label>
+            <select id="dropdown" th:field="*{category}" class="form-select mb-2">
+                <option th:each="category : ${categories}" th:value="${category.categoryId}" th:text="${category.name}">
+                </option>
+            </select>
             <input class="btn btn-success my-3" type="submit" value="Save changes" />
         </form>
     </div>

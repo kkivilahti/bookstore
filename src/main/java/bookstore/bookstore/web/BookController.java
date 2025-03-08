@@ -66,6 +66,7 @@ public class BookController {
     public String editBook(@PathVariable("id") Long id, Model model) {
         Optional<Book> book = brepository.findById(id);
         model.addAttribute("book", book);
+        model.addAttribute("categories", crepository.findAll());
         return "editbook";
     }
 }
