@@ -59,7 +59,8 @@ public class BookController {
     }
 
     // delete a book from the database based on id
-    @PreAuthorize("hasRole('ADMIN')")
+    // only admin user is authorized to delete a book
+    @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping("/delete/{id}")
     public String deleteBook(@PathVariable("id") Long id, Model model) {
         brepository.deleteById(id);
