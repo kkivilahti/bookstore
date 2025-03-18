@@ -9,3 +9,42 @@
 .footer p {
     margin: 5px;
 }
+
+.text-wrap {
+    max-width: 600px;
+    word-wrap: break-word;
+}
+
+.table-striped {
+    width: 80%;
+}
+
+td {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.col-sm-4 {
+    text-align: end;
+}
+
+@media screen and (max-width: 600px) {
+    h1 {
+        margin-bottom: 20px;
+    }
+
+    h4 {
+        font-size: 20px;
+    }
+
+    .btn-sm {
+        font-size: 13px;
+    }
+
+}
+
+@media screen and (max-width: 1000px) {
+    .table-striped {
+        width: 100%;
+    }
+}

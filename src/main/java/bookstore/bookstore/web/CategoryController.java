@@ -1,9 +1,12 @@
 package bookstore.bookstore.web;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import bookstore.bookstore.domain.Category;
@@ -38,4 +41,13 @@ public class CategoryController {
         return "redirect:/categorylist";
     }
 
+    // fetch category data by id
+    // pass the data to the model
+    // create a form page to edit the category
+    @GetMapping("/editcategory/{id}")
+    public String editCategory(@PathVariable("id") Long id, Model model) {
+        Optional<Category> category = crepository.findById(id);
+        model.addAttribute("category", category);
+        return "editcategory";
+    }
 }

@@ -11,9 +11,26 @@
 
 <body>
     <div class="container mt-5 text-center">
-        <h1>Welcome to my bookstore!</h1>
-        <a class="btn btn-primary m-3" href="/booklist">View books</a>
-        <a class="btn btn-secondary m-3" href="/categorylist">View categories</a>
+        <h1 class="mb-4">Welcome to my bookstore!</h1>
+
+        <div class="container-fluid mb-4">
+            <div class="d-flex justify-content-center align-items-center gap-3">
+                <h4 class="mb-0">Signed in as <span style="color: #6296c0;" sec:authentication="name"></span></h4>
+                <form th:action="@{/logout}" method="post">
+                    <input type="submit" value="Sign Out" class="btn btn-sm btn-danger" />
+                </form>
+            </div>
+        </div>
+
+        <div class="container d-flex justify-content-center">
+            <p class="text-wrap text-center">
+                This application was developed as part of Haaga-Helia's Backend Programming course. 
+                It is a basic CRUD (Create, Read, Update, Delete) app designed to demonstrate essential backend development concepts. 
+                The main focus was learning Spring Boot, database management and basic security practises.
+            </p>
+        </div>
+
+        <a class="btn btn-primary m-2" href="/booklist">View bookstore</a>
 
         <div class="footer">
             <p>Backend programming - SOF003AS3A-3011</p>
@@ -21,4 +38,5 @@
         </div>
     </div>
 </body>
+
 </html>

@@ -16,7 +16,6 @@ public class WebSecurityConfig {
     
     private final UserDetailsService userDetailsService;
 
-    @Autowired
     public WebSecurityConfig(UserDetailsService userDetailsService) {
         this.userDetailsService = userDetailsService;
     }
@@ -30,7 +29,7 @@ public class WebSecurityConfig {
             )
             .formLogin(formlogin -> formlogin
                 .loginPage("/login")
-                .defaultSuccessUrl("/booklist", true) //redirect to /booklist after login
+                .defaultSuccessUrl("/index", true) //redirect to /index after login
                 .permitAll()
             )
             .logout(logout -> logout

@@ -8,25 +8,29 @@
     <title>Bookstore-exercise</title>
 </head>
 
-<body>
-    <h1 class="my-4 ms-2">Login</h1>
+<body class="d-flex justify-content-center" style="min-height: 100vh; margin: 0;">
+    <div class="container">
+        <h1 class="my-4 text-center">Login</h1>
 
-    <div class="my-2 ms-2" th:if="${param.error}">
-        Invalid username or password.
-    </div>
-    <div class="my-2 ms-2" th:if="${param.logout}">
-        You have been logged out successfully.
-    </div>
+        <div class="my-2 ms-2 text-center" th:if="${param.error}">
+            Invalid username or password.
+        </div>
+        <div class="my-2 ms-2 text-center" th:if="${param.logout}">
+            You have been logged out successfully.
+        </div>
 
-    <div class="ms-2" style="max-width: 300px">
-        <form th:action="@{/login}" method="post">
-            <label for="username">Username:</label>
-            <input type="text" name="username" class="form-control mb-2" />
-            <label for="password">Password:</label>
-            <input type="password" name="password" class="form-control mb-2" />
+        <div class="d-flex justify-content-center">
+            <div class="ms-2" style="max-width: 300px; width: 100%;">
+                <form th:action="@{/login}" method="post">
+                    <label for="username">Username:</label>
+                    <input type="text" name="username" class="form-control mb-2" />
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" class="form-control mb-2" />
 
-            <input class="btn btn-success my-3" type="submit" value="Sign in" />
-        </form>
+                    <input class="btn btn-success my-3" type="submit" value="Sign in" />
+                </form>
+            </div>
+        </div>
     </div>
 </body>
 
