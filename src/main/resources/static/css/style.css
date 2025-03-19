@@ -15,8 +15,8 @@
     word-wrap: break-word;
 }
 
-.table-striped {
-    width: 80%;
+.table-responsive {
+    min-width: 80%;
 }
 
 td {
@@ -24,8 +24,12 @@ td {
     overflow-wrap: break-word;
 }
 
-.col-sm-4 {
-    text-align: end;
+.navbar-nav .nav-item.active {
+    font-weight: 600;
+}
+
+h4 {
+    font-size: 22px;
 }
 
 @media screen and (max-width: 600px) {
@@ -34,17 +38,17 @@ td {
     }
 
     h4 {
-        font-size: 20px;
+        font-size: 17px;
     }
 
     .btn-sm {
-        font-size: 13px;
+        font-size: 12px;
     }
 
 }
 
 @media screen and (max-width: 1000px) {
-    .table-striped {
+    .table-responsive {
         width: 100%;
     }
 }
