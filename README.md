@@ -1,17 +1,21 @@
-# Backend Programming Course Exercise: Bookstore
-This is a basic CRUD (Create, Read, Update, Delete) app designed to manage books and categories in a bookstore. 
-It allows users to add, update, and delete books and categories, and provides user authentication for secure access.
+# Backend Exercise: Bookstore
+This application was developed as part of Haaga-Helia's Backend Programming course. It is a basic CRUD app designed to demonstrate essential backend development concepts. 
+The main focus was learning Spring Boot, database management and basic security practises. 
 
-## Technologies Used
+Users can view, add and edit books and categories. Admin user can also delete books.
 
-- **Java / Spring Boot**: For building the backend services.
-- **H2 Database**: An in-memory database for quick development and testing.
-- **Spring Security**: For handling user authentication and securing the application.
-- **Thymeleaf**: Used for rendering HTML pages.
-- **Bootstrap**: For styling, although design was not the main focus of the project and is not fully polished
+![booklist](https://raw.githubusercontent.com/kkivilahti/bookstore/refs/heads/main/images/booklist.png)
 
-## Test the App
-The app is available on CSC Rahti for a limited time: [try it out](https://bookstore-bookstore-exercise.2.rahtiapp.fi/)
+## Technologies used
+
+- **Java / Spring Boot** 
+- **H2 Database** 
+- **Spring Security** 
+- **HTML / Thymeleaf** 
+- **Bootstrap** 
+
+## Test the app
+The app is temporarily hosted on CSC Rahti: [try it out](https://bookstore-bookstore-exercise.2.rahtiapp.fi/)
 
 You can also test the app locally by cloning the repository:
 ```bash
